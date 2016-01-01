@@ -1,7 +1,7 @@
 ifeq ($(KERNELRELEASE),)
 
 PWD := $(shell pwd)
-KERNELDIR ?= /home/whx/emb/kernel/android/ok6410/android2.3_kernel 
+KERNELDIR ?= /home/whx/eabi/linux/linux-3.0.1
 #INSTALLDIR ?= /home/whx/
 
 modules:
