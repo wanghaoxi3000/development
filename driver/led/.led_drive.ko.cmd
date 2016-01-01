@@ -1,1 +1,0 @@
-cmd_/home/whx/eabi/workspace/development/driver/led/led_drive.ko := arm-linux-ld -EL -r  -T /home/whx/eabi/linux/linux-3.0.1/scripts/module-common.lds --build-id  -o /home/whx/eabi/workspace/development/driver/led/led_drive.ko /home/whx/eabi/workspace/development/driver/led/led_drive.o /home/whx/eabi/workspace/development/driver/led/led_drive.mod.o
