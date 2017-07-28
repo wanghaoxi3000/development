@@ -1,4 +1,9 @@
-# 日常的代码练习
+# 日常代码练习
+记录一些个人日常学习和实践的代码
+
+## Python
+### Django
+- MxOnline: 慕课网Django+xadmin构建在线教育平台课程代码
 
 ## JavaScript
 ### base
