@@ -64,3 +64,57 @@
 //     console.log(status.next());
 //     console.log(status.next());
 // }
+
+{
+    // 抽奖程序
+
+    let draw = function(count){
+        // 抽奖具体逻辑
+        console.info(`剩余${count}次`)
+    }
+
+    let residue = function* (count){
+        while (count>0) {
+            count--;
+            yield draw(count);
+        }
+    }
+
+    let star=residue(5);
+    let btn=document.createElement('button');
+    btn.id='start';
+    btn.textContent='抽奖';
+    document.body.appendChild(btn);
+    document.getElementById('start').addEventListener('click', function(){
+        star.next();
+    });
+}
+
+{
+    // 长轮询
+    let ajax=function* (){
+        yield new Promise(function(resolve, reject){
+            setTimeout(function() {
+                resolve({code:0})   // 模拟查询时间，返回code:1时便会不断查询
+            }, 200);
+        })
+    }
+
+    let pull = function(){
+        let generator=ajax();
+        let step=generator.next();
+        console.info(step)
+        step.value.then(function(d){
+            if(d.code != 0){
+                setTimeout(function() {
+                    console.log('wait');
+                    pull()
+                }, 1000);
+            }else{
+                console.log(d);
+            }
+        })
+    }
+
+    pull();
+}
