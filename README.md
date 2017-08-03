@@ -5,6 +5,9 @@
 ### Django
 - MxOnline: 慕课网Django+xadmin构建在线教育平台课程代码
 
+### Spider
+- easy_spider 一个包含爬虫最基本框架的示例代码，用于爬取百度百科页面
+
 ## JavaScript
 ### base
 - ES6_Study: ES6特性学习实践代码
