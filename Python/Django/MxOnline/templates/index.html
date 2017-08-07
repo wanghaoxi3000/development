@@ -18,14 +18,12 @@
 <section class="headerwrap ">
     <header>
 		<div  class=" header">
+
+            {% if request.user.is_authenticated %}
  			<div class="top">
 				<div class="wp">
 					<div class="fl"><p>服务电话：<b>33333333</b></p></div>
 					<!--登录后跳转-->
-
-                        
-                        <a style="color:white" class="fr registerbtn" href="register.html">注册</a>
-                        <a style="color:white" class="fr loginbtn" href="/login/">登录</a>
 						
 						<div class="personal">
                             <dl class="user fr">
@@ -50,6 +48,19 @@
 
 				</div>
 			</div>
+            {% else %}
+            <div class="top">
+				<div class="wp">
+					<div class="fl"><p>服务电话：<b>33333333</b></p></div>
+					<!--登录后跳转-->
+
+
+                        <a style="color:white" class="fr registerbtn" href="register.html">注册</a>
+                        <a style="color:white" class="fr loginbtn" href="/login/">登录</a>
+
+				</div>
+			</div>
+            {% endif %}
 
             <div class="middle">
                 <div class="wp">
