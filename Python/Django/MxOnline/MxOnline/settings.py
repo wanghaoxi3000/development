@@ -145,3 +145,6 @@ EMAIL_HOST_USER = 'projectsedu@sina.com'
 EMAIL_HOST_PASSWORD = 'admin123'
 EMAIL_USE_TLS = False
 EMAIL_FROM = 'projectsedu@sina.com'
+
+MEDIA_URL = '/upload/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

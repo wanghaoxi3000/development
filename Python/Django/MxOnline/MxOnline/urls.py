@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.static import serve
 from django.views.generic import TemplateView
 
 import xadmin
 
 from users.views import LoginView, RegisterView, ActiveUserView, ForgetPwdView, ResetView, ModifyPostView
+from organization.views import OrgView
+from MxOnline.settings import MEDIA_ROOT
+
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
@@ -32,4 +36,10 @@ urlpatterns = [
     url(r'^active/(?P<active_code>.*)/$', ActiveUserView.as_view(), name='user_active'),
     url(r'reset/(?P<active_code>.*)/$', ResetView.as_view(), name='reset_pwd'),
     url(r'modify/$', ModifyPostView.as_view(), name='modify_pwd'),
+
+    # 课程机构首页
+    url(r'org_list/$', OrgView.as_view(), name='org_list'),
+
+    # 上传文件的访问函数
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT})
 ]
