@@ -38,7 +38,7 @@ urlpatterns = [
     url(r'modify/$', ModifyPostView.as_view(), name='modify_pwd'),
 
     # 课程机构首页
-    url(r'org_list/$', OrgView.as_view(), name='org_list'),
+    url(r'^org/', include('organization.urls', namespace='org')),
 
     # 上传文件的访问函数
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT})
