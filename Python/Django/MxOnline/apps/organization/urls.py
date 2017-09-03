@@ -3,7 +3,7 @@
 
 from django.conf.urls import url
 
-from .views import OrgView
+from .views import OrgView, AddUserAskView
 
 urlpatterns = [
     # 课程机构首页
