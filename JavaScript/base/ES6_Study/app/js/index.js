@@ -1,9 +1,6 @@
-// import 'babel-polyfill'
-// import './class/Iterator'
+import 'babel-polyfill'
+import Lottery from './lottery';
 
-// 模块化导入
-// import {A, test, Hello} from './class/moduel';
-// import * as moduel from './class/moduel'
-import Moduel from './class/moduel'
+const syy = new Lottery();
 
-console.log(Moduel.A)
+console.log(syy);
