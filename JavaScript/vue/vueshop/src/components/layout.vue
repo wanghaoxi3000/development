@@ -3,23 +3,52 @@
     <div class="app-head">
       <div class="app-head-inner">
         <img src="../assets/logo.png">
+        <div class="head-nav">
+          <ul class="nav-list">
+            <li>登录</li>
+            <li class="nav-pile">|</li>
+            <li>注册</li>
+            <li class="nav-pile">|</li>
+            <li @click="aboutClick">关于</li>
+          </ul>
+        </div>
       </div>
     </div>
+
     <div class="app-content">
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
     </div>
+
     <div class="app-foot">
-      footer
       <p>© 2016 fishenal MIT</p>
     </div>
+
+    <my-dialog :is-show="isShowDialog" @on-close="closeDialog">
+      <p>other Hello</p>
+    </my-dialog>
   </div>
 </template>
 
 <script>
+import Dialog from './dialog'
 export default {
-  name: 'layout'
+  name: 'layout',
+  components: { myDialog: Dialog },
+  methods: {
+    aboutClick () {
+      this.isShowDialog = true
+    },
+    closeDialog () {
+      this.isShowDialog = false
+    }
+  },
+  data () {
+    return {
+      isShowDialog: false
+    }
+  }
 }
 </script>
 

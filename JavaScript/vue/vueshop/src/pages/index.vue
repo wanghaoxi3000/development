@@ -28,7 +28,7 @@
         </div>
 
         <div class="index-right">
-          <slide-show :slides="slides"></slide-show>
+          <slide-show :slides="slides" :inv="slideSpeed" @onchange="doSomethingOnSlideChange"></slide-show>
           <div class="index-board-list">
             <div
             class="index-board-item"
@@ -60,8 +60,14 @@ export default {
         console.log(err)
       })
   },
+  methods: {
+    doSomethingOnSlideChange () {
+      console.log('run')
+    }
+  },
   data () {
     return {
+      slideSpeed: 2000,
       slides: [
         {
           src: require('../assets/slideShow/pic1.jpg'),
