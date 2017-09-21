@@ -72,12 +72,12 @@ export default {
         {
           src: require('../assets/slideShow/pic1.jpg'),
           title: 'xxx1',
-          href: 'detail/analysis'
+          href: 'detail/count'
         },
         {
           src: require('../assets/slideShow/pic2.jpg'),
           title: 'xxx2',
-          href: 'detail/count'
+          href: 'detail/analysis'
         },
         {
           src: require('../assets/slideShow/pic3.jpg'),
@@ -95,14 +95,14 @@ export default {
           title: '开放产品',
           description: '开放产品是一款开放产品',
           id: 'car',
-          toKey: 'analysis',
+          toKey: 'count',
           saleout: false
         },
         {
           title: '品牌营销',
           description: '品牌营销帮助你的产品更好地找到定位',
           id: 'earth',
-          toKey: 'count',
+          toKey: 'analysis',
           saleout: false
         },
         {

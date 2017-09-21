@@ -1,7 +1,7 @@
 <template>
     <div class="slide-show" @mouseover="clearInv" @mouseout="runInv">
       <div class="slide-img">
-        <a href="xxxx">
+        <a :href="slides[nowIndex].href">
           <transition name="slide-trans">
             <img v-if="isShow" :src="slides[nowIndex].src">
           </transition>
@@ -16,7 +16,7 @@
       <ul class="slide-pages">
         <li @click="goto(prevIndex)">&lt;</li>
         <li v-for="(item, index) in slides">
-          <a href="" :class="{on: index === nowIndex}">{{ index + 1 }}</a>
+          <a :class="{on: index === nowIndex}" @click="goto(index)">{{ index + 1 }}</a>
         </li>
         <li @click="goto(nextIndex)">&gt;</li>
       </ul>

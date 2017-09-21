@@ -2,19 +2,23 @@
   <div>
     <div class="app-head">
       <div class="app-head-inner">
-        <img src="../assets/logo.png">
+        <router-link :to="{path: '/'}">
+          <img src="../assets/logo.png">
+        </router-link>
         <div class="head-nav">
           <ul class="nav-list">
-            <li @click="logClick">登录</li>
+            <li>{{username}}</li>
+            <li v-if="username === ''" @click="logClick">登录</li>
             <li class="nav-pile">|</li>
-            <li @click="regClick">注册</li>
+            <li v-if="username !== ''" @click="quit">退出</li>
+            <li v-if="username === ''" @click="regClick">注册</li>
             <li class="nav-pile">|</li>
             <li @click="aboutClick">关于</li>
           </ul>
         </div>
       </div>
     </div>
-
+    
     <div class="app-content">
       <keep-alive>
         <router-view></router-view>
@@ -26,7 +30,7 @@
     </div>
 
     <my-dialog :is-show="isShowLogDialog" @on-close="closeDialog('isShowLogDialog')">
-      <log-form></log-form>
+      <log-form @has-log="onSuccessLog"></log-form>
     </my-dialog>
 
     <my-dialog :is-show="isShowRegDialog" @on-close="closeDialog('isShowRegDialog')">
@@ -65,13 +69,21 @@ export default {
     },
     closeDialog (attr) {
       this[attr] = false
+    },
+    onSuccessLog (data) {
+      this.closeDialog('isShowLogDialog')
+      this.username = data.username
+    },
+    quit () {
+      this.username = ''
     }
   },
   data () {
     return {
       isShowAboutDialog: false,
       isShowLogDialog: false,
-      isShowRegDialog: false
+      isShowRegDialog: false,
+      username: ''
     }
   }
 }

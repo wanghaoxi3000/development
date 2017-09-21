@@ -76,18 +76,17 @@ export default {
   },
   methods: {
     onLogin () {
-      console.log(this.usernameModel, this.passwordModel)
-      // if (!this.userErrors.status || !this.passwordErrors.status) {
-      //   this.errorText = '部分选项未通过'
-      // } else {
-      //   this.errorText = ''
-      //   this.$http.get('api/login')
-      //     .then((res) => {
-      //       this.$emit('has-log', res.data)
-      //     }, (error) => {
-      //       console.log(error)
-      //     })
-      // }
+      if (!this.userErrors.status || !this.passwordErrors.status) {
+        this.errorText = '部分选项未通过'
+      } else {
+        this.errorText = ''
+        this.$http.get('api/login')
+          .then((res) => {
+            this.$emit('has-log', res.data)
+          }, (error) => {
+            console.log(error)
+          })
+      }
     }
   }
 }
