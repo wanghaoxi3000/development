@@ -1,4 +1,4 @@
-读完了<大话设计模式>这本书，收获很多，对程序设计有了很多新的理解。将每章模式的大概要点做了些笔记以备查阅，一些设计模式书读完也对其了解得不是很透彻，需要以后在实践中来不断地加深理解吧。读书过程中用Java跟着实践了些部分模式的代码上传到了[https://github.com/wanghaoxi3000/design_mode](https://github.com/wanghaoxi3000/design_mode)。
+读完了<大话设计模式>这本书，收获很多，对程序设计有了很多新的理解。将每章模式的大概要点做了些笔记以备查阅，一些设计模式书读完也对其了解得不是很透彻，需要以后在实践中来不断地加深理解吧。读书过程中用Java跟着实践了些部分模式的代码上传到了[https://github.com/wanghaoxi3000/development/tree/master/Java/JavaSE/DesignPatterns](https://github.com/wanghaoxi3000/development/tree/master/Java/JavaSE/DesignPatterns)。
 
 ## 设计模式
 
