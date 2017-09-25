@@ -15,5 +15,5 @@ urlpatterns = [
     url(r'^teacher/(?P<org_id>\d+)/$', OrgTeacherView.as_view(), name='org_teacher'),
 
     # 机构收藏
-    url(r'^add_fav/$', AddFavView.as_view(), name="add_ask"),
+    url(r'^add_fav/$', AddFavView.as_view(), name="add_fav"),
 ]
