@@ -33,6 +33,11 @@ class OrgView(View):
         if city_id:
             all_orgs = all_orgs.filter(city_id=int(city_id))
 
+        # 机构搜索
+        search_keywords = request.GET.get('keywords', "")
+        if search_keywords:
+            all_orgs = all_orgs.filter(Q(name__icontains=search_keywords) | Q(desc__icontains=search_keywords))
+
         # 类别筛选
         category = request.GET.get('ct', "")
         if category:
@@ -199,7 +204,7 @@ class TeacherListView(View):
     def get(self, request):
         all_teachers = Teacher.objects.all()
 
-        # 机构搜索
+        # 教师搜索
         search_keywords = request.GET.get('keywords', "")
         if search_keywords:
             all_teachers = all_teachers.filter(Q(name__icontains=search_keywords) |
@@ -249,7 +254,7 @@ class TeacherDetailView(View):
 
         # 讲师排行
         sorted_teacher = Teacher.objects.all().order_by("-click_nums")[:3]
-        return render(request, "teacher-detail.html",{
+        return render(request, "teacher-detail.html", {
             "teacher": teacher,
             "all_courses": all_courses,
             "sorted_teacher": sorted_teacher,
