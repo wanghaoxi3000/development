@@ -41,8 +41,11 @@ urlpatterns = [
     url(r'^org/', include('organization.urls', namespace='org')),
 
     # 课程页面
-    url(r'^course/', include('course.urls', namespace='course'), name='course'),
+    url(r'^course/', include('course.urls', namespace='course')),
 
     # 上传文件的访问函数
-    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT})
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
+
+    # 课程列表面
+    url(r'^users/', include('users.urls', namespace='users')),
 ]

@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
@@ -8,7 +9,7 @@ from django.views.generic import View
 
 from .models import UserProfile
 from .models import EmailVerifyRecord
-from .forms import LoginForm, RegisterForm, ForgetForm, ModifyPwdForm
+from .forms import LoginForm, RegisterForm, ForgetForm, ModifyPwdForm, UploadImageForm
 from utils.email_send import send_register_email
 
 
@@ -126,3 +127,32 @@ class ModifyPostView(View):
         else:
             email = request.POST.get('email', '')
             return render(request, 'password_reset.html', {'email': email, 'modify_form': modify_form})
+
+
+class UserInfoView(LoginRequiredMixin, View):
+    """
+    用户个人信息
+    """
+    def get(self, request):
+        return render(request, 'usercenter-info.html', {})
+
+    def post(self, request):
+        user_info_form = UserInfoForm(request.POST,instance=request.user)
+        if user_info_form.is_valid():
+            user_info_form.save()
+            return HttpResponse('{"status":"success"}', content_type='application/json')
+        else:
+            return HttpResponse(json.dumps(user_info_form.errors), content_type='application/json')
+
+
+class UploadImageView(LoginRequiredMixin,View):
+    """
+    用户修改头像
+    """
+    def post(self, request):
+        image_form = UploadImageForm(request.POST, request.FILES, instance=request.user)
+        if image_form.is_valid():
+            image_form.save()
+            return HttpResponse('{"status":"success"}', content_type='application/json')
+        else:
+            return HttpResponse('{"status":"fail"}', content_type='application/json')
