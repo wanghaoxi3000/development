@@ -10,9 +10,10 @@ from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 from django.views.generic import View
 
+from operation.models import UserCourse
 from .models import UserProfile
 from .models import EmailVerifyRecord
-from .forms import LoginForm, RegisterForm, ForgetForm, ModifyPwdForm, UploadImageForm
+from .forms import LoginForm, RegisterForm, ForgetForm, ModifyPwdForm, UploadImageForm, UserInfoForm
 from utils.email_send import send_register_email
 
 
@@ -198,9 +199,9 @@ class UpdateEmailView(LoginRequiredMixin,View):
     """
     修改个人邮箱
     """
-    def post(self,request):
-        email = request.POST.get('email','')
-        code = request.POST.get('code','')
+    def post(self, request):
+        email = request.POST.get('email', '')
+        code = request.POST.get('code', '')
 
         existed_records = EmailVerifyRecord.objects.filter(email=email,code=code,send_type='update_email')
         if existed_records:
@@ -210,3 +211,14 @@ class UpdateEmailView(LoginRequiredMixin,View):
             return HttpResponse('{"status":"success"}', content_type='application/json')
         else:
             return HttpResponse('{"email":"验证码出错"}', content_type='application/json')
+
+
+class MyCourseView(LoginRequiredMixin,View):
+    """
+    我的课程
+    """
+    def get(self, request):
+        user_courses = UserCourse.objects.filter(user=request.user)
+        return render(request, 'usercenter-mycourse.html', {
+            "user_courses": user_courses,
+        })
