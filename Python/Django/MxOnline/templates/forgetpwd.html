@@ -41,7 +41,7 @@
             <input type="hidden" name="mobile" id="jsInpResetMobil" />
             <input id="jsSetNewPwdBtn" type="button" value="提交" />
         </div>
-        <input type='hidden' name='csrfmiddlewaretoken' value='mymQDzHWl2REXIfPMg2mJaLqDfaS1sD5' />
+        {% csrf_token %}
     </form>
 </div>
 <div class="bg" id="dialogBg"></div>
@@ -61,9 +61,9 @@
     <div class="c-box bg-box">
         <div class="login-box clearfix">
             <div class="hd-login clearfix">
-                <a class="index-logo" href="index.html"></a>
+                <a class="index-logo" href="{% url 'index' %}"></a>
                 <h1>忘记密码</h1>
-                <a class="index-font" href="index.html">回到首页</a>
+                <a class="index-font" href="{% url 'index' %}">回到首页</a>
             </div>
             <div class="fl slide">
                 <div class="imgslide">
@@ -80,21 +80,19 @@
                 <h2>忘记密码</h2>
                 <form id="jsFindPwdForm" method="post" action="{% url 'forget_pwd' %}" autocomplete="off">
                     <input type='hidden' name='csrfmiddlewaretoken' value='mymQDzHWl2REXIfPMg2mJaLqDfaS1sD5' />
-                    <div class="form-group marb20 {% if forget_form.errors.email %}errorput{% endif %}">
+                    <div class="form-group marb20 {% if forget_form.errors.email %} errorput {% endif %}">
                         <label>帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label>
-                        <input id="account" name="email" placeholder="邮箱" {% if forget_form.email.value %}value="{{ forget_form.email.value }}"{% endif %}/>
+                        <input type="text" id="account" name="email" value="{{ forget_form.email.value }}" placeholder="邮箱" />
                     </div>
-                    <div class="form-group captcha1 marb38 {% if forget_form.errors.captcha %}errorput{% endif %}">
+                    <div class="form-group captcha1 marb38">
                         <label>验&nbsp;证&nbsp;码</label>
                         {{ forget_form.captcha }}
                     </div>
-                    <div class="error btns" id="jsForgetTips">{% for key, error in forget_form.errors.items %}{{ error }}{% endfor %}{{ msg }}</div>
+                    <div class="error btns" id="jsForgetTips">{% for key,error in forget_form.errors.items %}{{ error }}{% endfor %}{{ msg }}</div>
                     <input type="hidden" name="sms_type" value="1">
                     <input class="btn btn-green" id="jsFindPwdBtn" type="submit" value="提交" />
                     <p class="form-p" style="bottom:40px;">您还可以<a href="login.html"> [直接登录]</a></p>
-                <input type='hidden' name='csrfmiddlewaretoken' value='5I2SlleZJOMUX9QbwYLUIAOshdrdpRcy' />
-
-                {% csrf_token %}
+                    {% csrf_token %}
                 </form>
             </div>
         </div>

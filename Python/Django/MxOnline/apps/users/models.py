@@ -6,7 +6,7 @@ from django.contrib.auth.models import AbstractUser
 
 class UserProfile(AbstractUser):
     nick_name = models.CharField(max_length=50, verbose_name=u"昵称", default="")
-    birday = models.DateField(verbose_name=u"生日", null=True, blank=True)
+    birthday = models.DateField(verbose_name=u"生日", null=True, blank=True)
     gender = models.CharField(max_length=8, choices=(("male", "男"), ("female", "女")), default="male")
     address = models.CharField(max_length=100, default="")
     mobile = models.CharField(max_length=11, null=True, blank=True)
@@ -22,7 +22,7 @@ class UserProfile(AbstractUser):
     def unread_nums(self):
         # 获取用户未读消息的数量
         from operation.models import UserMessage
-        return UserMessage.objects.filter(user=self.id)
+        return UserMessage.objects.filter(user=self.id).count()
 
 
 class EmailVerifyRecord(models.Model):

@@ -1,10 +1,10 @@
 import json
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse
+from django.core.urlresolvers import reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.contrib.auth import authenticate
-from django.contrib.auth import login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
@@ -14,7 +14,7 @@ from pure_pagination import Paginator, PageNotAnInteger
 from course.models import Course
 from operation.models import UserFavorite, UserCourse, UserMessage
 from organization.models import CourseOrg, Teacher
-from .models import UserProfile
+from .models import UserProfile, Banner
 from .models import EmailVerifyRecord
 from .forms import LoginForm, RegisterForm, ForgetForm, ModifyPwdForm, UploadImageForm, UserInfoForm
 from utils.email_send import send_register_email
@@ -29,6 +29,15 @@ class CustomBackend(ModelBackend):
 
         except Exception as e:
             return None
+
+
+class LogoutView(View):
+    """
+    用户登出
+    """
+    def get(self, request):
+        logout(request)
+        return HttpResponseRedirect(reverse("index"))
 
 
 class LoginView(View):
@@ -303,4 +312,19 @@ class MyMessageView(LoginRequiredMixin,View):
         messages = p.page(page)
         return render(request, 'usercenter-message.html', {
             "messages": messages,
+        })
+
+
+class IndexView(View):
+    def get(self, request):
+        # 取出轮播图
+        all_banners = Banner.objects.all().order_by('index')
+        courses = Course.objects.filter(is_banner=False)[:6]
+        banner_courses = Course.objects.filter(is_banner=True)[:3]
+        course_orgs = CourseOrg.objects.all()[:15]
+        return render(request, "index.html", {
+            'all_banners': all_banners,
+            "courses": courses,
+            "banner_courses": banner_courses,
+            "course_orgs": course_orgs,
         })
