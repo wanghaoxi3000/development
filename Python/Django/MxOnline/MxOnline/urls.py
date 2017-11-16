@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.views.static import serve
-from django.views.generic import TemplateView
 
 import xadmin
 
@@ -46,6 +45,15 @@ urlpatterns = [
     # 上传文件的访问函数
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
 
+    # 配置上传文件的访问处理函数
+    # url(r'^static/(?P<path>.*)$', serve, {"document_root": STATIC_ROOT}),
+
     # 课程列表面
     url(r'^users/', include('users.urls', namespace='users')),
 ]
+
+# 全局404页面配置
+handler404 = 'users.views.page_not_found'
+
+# 全局500页面配置
+handler500 = 'users.views.page_error'
