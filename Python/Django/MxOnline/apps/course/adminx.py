@@ -29,6 +29,7 @@ class CourseResourceAdmin:
     serrch_fields = ['course', 'name', 'download']
     list_filter = ['course__name', 'name', 'download', 'add_time']
 
+
 xadmin.site.register(Course, CourseAdmin)
 xadmin.site.register(Lesson, LessonAdmin)
 xadmin.site.register(Video, VideoAdmin)
