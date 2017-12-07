@@ -1,17 +1,14 @@
 # 日常代码练习
 记录一些个人日常学习和实践的代码
 
-## Python
-### Django
-- MxOnline: 慕课网Django+xadmin构建在线教育平台课程代码
-
-### Spider
-- easy_spider 一个包含爬虫最基本框架的示例代码，用于爬取百度百科页面
+## Docker
+- shadowsocks 自动拉取最新版shadowsocks来生成Docker，配置了libsodium库
 
 
 ## Java
 ### JavaSE
 - DesignPatterns <大话设计模式>Java实现的部分代码
+
 
 ## JavaScript
 ### base
@@ -33,3 +30,10 @@
 - poll: 基于poll的简单聊天服务器
 - epoll: 基于epoll的lt(水平触发)和et(边沿触发)简单服务器
 
+
+## Python
+### Django
+- MxOnline: 慕课网Django+xadmin构建在线教育平台课程代码
+
+### Spider
+- easy_spider 一个包含爬虫最基本框架的示例代码，用于爬取百度百科页面
