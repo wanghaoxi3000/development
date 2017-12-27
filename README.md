@@ -37,3 +37,6 @@
 
 ### Spider
 - easy_spider 一个包含爬虫最基本框架的示例代码，用于爬取百度百科页面
+
+### OpenCV
+- base OpenCV库基本功能代码
