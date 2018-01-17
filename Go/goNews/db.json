@@ -3,5 +3,5 @@
         "http://feed.cnblogs.com/blog/sitehome/rss",
         "http://feed.cnblogs.com/blog/u/228315/rss"
     ],
-    "flushTime": 5
+    "flushTime": 10
 }
