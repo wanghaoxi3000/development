@@ -6,6 +6,7 @@ Django==1.11.8
 django-silk==1.0.0
 djangorestframework==3.7.3
 Faker==0.8.7
+gmpy2==2.0.8
 idna==2.6
 Jinja2==2.10
 MarkupSafe==1.0
