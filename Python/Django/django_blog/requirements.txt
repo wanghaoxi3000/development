@@ -1,0 +1,6 @@
+django==1.11
+markdown
+pypinyin
+Pillow
+PyMySQL
+uwsgi

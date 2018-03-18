@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block page-title %}Haoxi Blog{% endblock %}</title>
+    <link rel="icon" href="/static/pic/webIco.png">
+
+    {#TODO: 发布时切换相应版本#}
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/static/bootstrap-3.3.7/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/blog.css' %}" rel="stylesheet">
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+    {% block page-css %}{% endblock %}
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div id="page-top" class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="{% url 'index' %}">首页</a>
+{#          <a class="blog-nav-item" href="">联系我</a>#}
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="blog-header">
+          <img class="header-slogan" src="{% static 'pic/slogen_b.png' %}" alt="某中二的黑科技(LABORATORY)">
+          <p class="lead blog-description header-slogan">某中二的黑科技研究中心</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+        {% block  page-content %}
+        {% endblock %}
+
+        {% block page-nav %}
+        {% endblock %}
+
+        </div><!-- /.blog-main -->
+
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
+          <div class="sidebar-module">
+            <h4>文章类别</h4>
+            <ol class="list-unstyled">
+            {% for item in categorys %}
+                <li><a href="{% url 'blog:filter' 'category' item.1 '1' %}">{{ item.0 }}</a></li>
+            {% endfor %}
+            </ol>
+
+          </div>
+
+           <div class="sidebar-module">
+            <h4>文章存档</h4>
+            <ol class="list-unstyled">
+                {% for item in publishs %}
+                <li><a href="{% url 'blog:filter' 'archive' item.1 '1' %}">{{ item.0 }}</a></li>
+                {% endfor %}
+            </ol>
+
+          </div>
+
+          <div class="sidebar-module">
+            <h4>分研究所</h4>
+            <ol class="list-unstyled">
+              <li><a href="http://www.cnblogs.com/haoxi/" target="_blank">博客园</a></li>
+              <li><a href="http://blog.csdn.net/wanghaoxi3000" target="_blank">CSDN</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>技术人员肩上担负着的，是别人的人生!</p>
+      <p>
+        <a href="#page-top">Back to top</a>
+      </p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    {#TODO: 发布时切换相应版本#}
+    <script src="/static/jquery/jquery-3.2.0.js"></script>
+    <script>window.jQuery || document.write('<script src="/static/jquery/jquery-3.2.0.js"><\/script>')</script>
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/static/bootstrap-3.3.7/js/ie10-viewport-bug-workaround.js"></script>
+
+  <script src="{% static 'js/custom.js' %}"></script>
+
+  </body>
+</html>

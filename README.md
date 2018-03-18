@@ -3,7 +3,8 @@
 
 ## Python
 ### Django
-- MxOnline: 慕课网Django+xadmin构建在线教育平台课程代码
+- MxOnline: 慕课网 Django + xadmin 构建在线教育平台课程代码
+- django_blog 一个简易的 Django + Bootstrap 个人博客
 - optimize_django: Django 的一些优化技巧, 参考 http://blog.csdn.net/dev_csdn/article/details/78782570
 
 ### Spider

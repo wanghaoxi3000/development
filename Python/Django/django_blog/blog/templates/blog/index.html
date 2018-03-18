@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+{% load show_page %}
+
+{% block page-content %}
+
+    {% for article in blog_list %}
+        <div class="blog-post">
+            <h2 class="blog-post-title">
+{#                {{ article.title }}#}
+                <a class="blog-title-a" href="{% url 'blog:article_detail' article.pk %}">{{ article.title }}</a>
+            </h2>
+            <p class="blog-post-meta">
+                类别:
+                <a href="{% url 'blog:filter' 'category' article.category.slug '1' %}">
+                    {{ article.category }}
+                </a>&nbsp;
+                发布于: {{ article.publish_time_format }} {{ page_obj.number }}&nbsp;
+                阅读: {{ article.read_num }}
+            </p>
+
+            <hr>
+
+        </div>
+    {% endfor %}
+
+{% endblock %}
+
+{% block page-nav %}
+    <nav aria-label="Page navigation">
+        {% show_page paginator page_obj show name %}
+    </nav>
+{% endblock %}

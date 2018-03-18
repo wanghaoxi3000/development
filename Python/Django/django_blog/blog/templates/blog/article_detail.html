@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %}
+{% load show_markdown %}
+{% load static %}
+
+
+{% block page-title %}
+    {{ article.title }}
+{% endblock %}
+
+{% block page-content %}
+    <div class="blog-post">
+        <h2 class="blog-post-title">{{ article.title }}</h2>
+        <p class="blog-post-meta">
+            类别:
+            <a href="{% url 'blog:filter' 'category' article.category.slug '1' %}">
+                {{ article.category }}&nbsp;
+            </a>
+            发布于: {{ article.publish_time_format }}
+            阅读: {{ article.read_num }}
+        </p>
+        <hr>
+
+        {{ article.content | show_markdown }}
+        <p class="blog-post-meta-bottom text-right">最后修改时间: {{ article.update_time_format }}</p>
+    </div>
+{% endblock %}
+
+{% block page-nav %}
+      <nav>
+        <ul class="pager">
+        {% if prev %}
+            <li><a href="{{ prev }}">上一篇</a></li>
+        {% endif %}
+
+        {% if next %}
+            <li><a class="text-right" href="{{ next }}">下一篇</a></li>
+        {% endif %}
+        </ul>
+      </nav>
+{% endblock %}
