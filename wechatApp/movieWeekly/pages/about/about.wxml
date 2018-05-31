@@ -1,0 +1,6 @@
+<view class='container'>
+  <image src='/images/about.jpg' class='about-banner'></image>
+  <text style='font-weight: bold; font-size: 60rpx;'>电影周周看</text>
+  <text>每周推荐一部好片</text>
+  <text>weibo: weibo.com</text>
+</view>

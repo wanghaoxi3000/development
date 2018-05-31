@@ -26,6 +26,9 @@
 - goNews 一个用Go实现的抓取RSS信息的小项目，基于goFeed，通过JSON文件来记录源和数据
 
 
+## wechatApp
+- movieWeekly 学堂在线电影周周看小程序学习代码
+
 ## Java
 ### JavaSE
 - DesignPatterns <大话设计模式>Java实现的部分代码
