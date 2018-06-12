@@ -1,6 +1,14 @@
 <view class='container'>
   <image src='/images/about.jpg' class='about-banner'></image>
   <text style='font-weight: bold; font-size: 60rpx;'>电影周周看</text>
-  <text>每周推荐一部好片</text>
+  <view>
+    <text>我</text>
+    <navigator 
+      url='/pages/weekly/weekly' 
+      class='nav-default'
+      style='display: inline;'
+      open-type='navigate'
+      hover-class='nav-hover'>每周推荐一部好片</navigator>
+  </view>
   <text>weibo: weibo.com</text>
 </view>
