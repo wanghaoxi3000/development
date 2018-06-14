@@ -7,7 +7,7 @@
       url='/pages/weekly/weekly' 
       class='nav-default'
       style='display: inline;'
-      open-type='navigate'
+      open-type='switchTab'
       hover-class='nav-hover'>每周推荐一部好片</navigator>
   </view>
   <text>weibo: weibo.com</text>
