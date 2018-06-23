@@ -23,4 +23,16 @@
   width: 100%;
   background: #eee;
   margin: 0 20rpx;
+  position: relative;
+}
+
+.return-button{
+  position: absolute;
+  right: 0;
+  top: 40px;
+  font-size: 26rpx;
+  font-style: italic;
+  border: 1px solid blud;
+  border-right: 0;
+  border-radius: 10%;
 }
