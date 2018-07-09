@@ -25,7 +25,7 @@ Page({
         isHighlyRecommended: true,
       }
     ],
-    count: 123,
+    count: 0,
     score: 61,
     currentIndex: 0
   },
@@ -86,5 +86,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  f0: function(event) {
+    this.setData({
+      count: this.data.count + 1,
+
+      "weeklyMovieList[2].name": "教父3"
+    })
   }
 })

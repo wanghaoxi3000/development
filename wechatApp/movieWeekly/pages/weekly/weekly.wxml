@@ -16,4 +16,6 @@
     </swiper-item>
   </swiper>
 
+  <text>{{count}}</text>
+  <button bindtap='f0'>+1</button>
 </view>
