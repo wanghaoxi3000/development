@@ -11,18 +11,21 @@ Page({
         comment: "失去的才是永恒的",
         imagePath: "/images/titanic.jpg",
         isHighlyRecommended: false,
+        id: 77
       },
       {
         name: "这个杀手不太冷",
         comment: "小萝莉与怪蜀黍纯真灿烂的爱情故事",
         imagePath: "/images/leon.jpg",
         isHighlyRecommended: false,
+        id: 88
       },
       {
         name: "教父",
         comment: "最精彩的剧本，最真实的黑帮电影。",
         imagePath: "/images/jf.jpg",
         isHighlyRecommended: true,
+        id: 99
       }
     ],
     count: 0,
@@ -90,9 +93,16 @@ Page({
 
   f0: function(event) {
     this.setData({
-      count: this.data.count + 1,
+      currentIndex: this.data.weeklyMovieList.length - 1
+    })
+  },
 
-      "weeklyMovieList[2].name": "教父3"
+  f1: function(event) {
+    let movieId = event.currentTarget.dataset.movieId
+    console.log(movieId)
+    
+    wx.navigateTo({
+      url: '/pages/detail/detail',
     })
   }
 })
