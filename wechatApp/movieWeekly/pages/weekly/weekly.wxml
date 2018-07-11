@@ -15,7 +15,7 @@
 
         <text wx:if='{{index < currentIndex}}' 
           class='return-button'
-          bindtap='f0'>
+          catchtap='f0'>
           返回本周
           </text>
       </view>

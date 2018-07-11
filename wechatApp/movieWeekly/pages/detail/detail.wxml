@@ -1,2 +1,2 @@
 <!--pages/detail/detail.wxml-->
-<text>detail page</text>
+<text>detail page for movie id={{mid}}</text>

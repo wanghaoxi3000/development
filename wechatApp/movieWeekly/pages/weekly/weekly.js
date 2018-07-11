@@ -102,7 +102,7 @@ Page({
     console.log(movieId)
     
     wx.navigateTo({
-      url: '/pages/detail/detail',
+      url: `/pages/detail/detail?id=${movieId}`,
     })
   }
 })
