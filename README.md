@@ -49,3 +49,4 @@
 
 ## Docker
 - shadowsocks 自动拉取最新版shadowsocks来生成Docker，配置了libsodium库
+- frp 自动下载制定版本的frp来生成Docker
