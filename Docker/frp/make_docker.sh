@@ -22,4 +22,6 @@ rm -rf frp
 mv $FRP_FILE_NAME frp
 docker build -t frp:${FRP_VERSION} .
 
+rm -rf frp*
 echo "Build frp:${FRP_VERSION} docker image complete"
+

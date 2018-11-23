@@ -1,12 +1,16 @@
-FROM alpine:3.5
+FROM alpine:3.6
 
-COPY frp/frpc /frpc
-COPY frp/frps /frps
-COPY frp/frpc.ini /frpc.ini
-COPY frp/frps.ini /frps.ini
+COPY frp/frps /bin/frps
+COPY entrypoint.sh /opt/frps/
 
-WORKDIR /
+RUN chmod +x /bin/frps && chmod +x /opt/frps/entrypoint.sh
+WORKDIR /opt/frps/
 
-EXPOSE 80 443 6000 7000 7500
+ENV FRP_PORT=4000
+ENV FRP_DASHBOARD=true
+ENV FRP_DASHBOARD_PORT=4010
+ENV FRP_DASHBOARD_USER frp_admin
+ENV FRP_DASHBOARD_PWD frp_admin123
 
-ENTRYPOINT ["/frps"]
+EXPOSE 4000-4010
+ENTRYPOINT ["./entrypoint.sh"]
