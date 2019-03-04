@@ -6,3 +6,4 @@ LeetCode 解题记录
 - lengthOfLongestSubstring 无重复字符的最长子串
 - longestCommonPrefix 最长公共前缀
 - checkInclusion 字符串的排列
+- multiply 字符串相乘
