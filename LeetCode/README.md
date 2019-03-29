@@ -12,3 +12,6 @@ LeetCode 解题记录
 - restoreIPAddresses 复原IP地址
 - threeSum 三数之和
 - search 搜索旋转排序数组
+
+695. maxAreaOfIsland 岛屿的最大面积
+674. findLengthOfLCIS 最长连续递增序列
