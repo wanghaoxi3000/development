@@ -35,4 +35,9 @@ func TestBubbleSort(t *testing.T) {
 	if testList != sortedList {
 		t.Errorf("test insert sort fail, sort ret: %v", sortedList)
 	}
+
+	testList = shellSort(randomList)
+	if testList != sortedList {
+		t.Errorf("test short sort fail, sort ret: %v", sortedList)
+	}
 }
