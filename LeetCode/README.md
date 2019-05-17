@@ -13,5 +13,6 @@ LeetCode 解题记录
 - threeSum 三数之和
 - search 搜索旋转排序数组
 
+268. missingNumber 缺失数字
 695. maxAreaOfIsland 岛屿的最大面积
 674. findLengthOfLCIS 最长连续递增序列
