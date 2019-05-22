@@ -23,21 +23,26 @@ func TestBubbleSort(t *testing.T) {
 
 	testList = bubbleSort(randomList)
 	if testList != sortedList {
-		t.Errorf("test bubble sort fail, sort ret: %v", sortedList)
+		t.Errorf("test bubble sort fail, sort ret: %v", testList)
 	}
 
 	testList = selectionSort(randomList)
 	if testList != sortedList {
-		t.Errorf("test selection sort fail, sort ret: %v", sortedList)
+		t.Errorf("test selection sort fail, sort ret: %v", testList)
 	}
 
 	testList = insertSort(randomList)
 	if testList != sortedList {
-		t.Errorf("test insert sort fail, sort ret: %v", sortedList)
+		t.Errorf("test insert sort fail, sort ret: %v", testList)
 	}
 
 	testList = shellSort(randomList)
 	if testList != sortedList {
-		t.Errorf("test short sort fail, sort ret: %v", sortedList)
+		t.Errorf("test short sort fail, sort ret: %v", testList)
+	}
+
+	testList = quickSort(randomList)
+	if testList != sortedList {
+		t.Errorf("test quick sort fail, sort ret: %v", testList)
 	}
 }
