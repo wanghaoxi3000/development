@@ -13,7 +13,9 @@ LeetCode 解题记录
 - threeSum 三数之和
 - search 搜索旋转排序数组
 
+9. Palindrome Number 回文数
 75. sortColors 颜色分类
+267. Two Sum II - Input array is sorted 两数之和 II - 输入有序数组
 268. missingNumber 缺失数字
 695. maxAreaOfIsland 岛屿的最大面积
 674. findLengthOfLCIS 最长连续递增序列
