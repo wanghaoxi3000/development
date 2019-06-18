@@ -19,7 +19,7 @@ package leetcode
 // 通过已排序的特性使用左右两个指针寻找
 // 时间复杂度 O(n)
 // 空间复杂度 O(1)
-func twoSum(numbers []int, target int) []int {
+func twoSum2(numbers []int, target int) []int {
 	l, r := 0, len(numbers)-1
 	sum := 0
 	ret := []int{l, r}

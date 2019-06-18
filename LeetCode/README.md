@@ -13,12 +13,12 @@ LeetCode 解题记录
 - threeSum 三数之和
 - search 搜索旋转排序数组
 
-
+- 1.[Two sum 两数之和](./Go/1_twoSum.go)
 - 3.[Longest Substring Without Repeating Characters 无重复字符的最长子串](./Go/3_lengthOfLongestSubstring.go)
 - 9.[Palindrome Number 回文数](./Go/9_isPalindrome.go)
 - 75.[sortColors 颜色分类](./Go/75_sortColors.go)
 - 209.[Minimum Size Subarray Sum 长度最小的子数组](./Go/209_minSubArrayLen.go)
-- 167.[Two Sum II - Input array is sorted 两数之和 II - 输入有序数组](./Go/167_twoSum.go)
+- 167.[Two Sum II - Input array is sorted 两数之和 II - 输入有序数组](./Go/167_twoSum2.go)
 - 268.[missingNumber 缺失数字](./Go/268_missingNumber.go)
 - 349.[Intersection of Two Arrays 两个数组的交集](./Go/349_intersection.go)
 - 695.[Max Area of Island 岛屿的最大面积](./Go/695_maxAreaOfIsland.go)

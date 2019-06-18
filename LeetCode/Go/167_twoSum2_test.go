@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestTwoSum(t *testing.T) {
+func TestTwoSum2(t *testing.T) {
 	var tests = []struct {
 		in1 []int
 		in2 int
@@ -15,7 +15,7 @@ func TestTwoSum(t *testing.T) {
 	}
 
 	for i, item := range tests {
-		ret := twoSum(item.in1, item.in2)
+		ret := twoSum2(item.in1, item.in2)
 		if !reflect.DeepEqual(ret, item.out) {
 			t.Errorf("%d. %v %v => %v, wanted: %v", i, item.in1, item.in2, ret, item.out)
 		}
