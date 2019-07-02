@@ -22,5 +22,6 @@ LeetCode 解题记录
 - 268.[missingNumber 缺失数字](./Go/268_missingNumber.go)
 - 349.[Intersection of Two Arrays 两个数组的交集](./Go/349_intersection.go)
 - 454.[4Sum II 四数相加 II](./Go/454_4SumII.go)
+- 447.[Number of Boomerangs 回旋镖的数量](./Go/447_numberOfBoomerangs.go)
 - 695.[Max Area of Island 岛屿的最大面积](./Go/695_maxAreaOfIsland.go)
 - 674.[Longest Continuous Increasing Subsequence 最长连续递增序列](./Go/674_findLengthOfLCIS.go)
